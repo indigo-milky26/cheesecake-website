@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pumpkin Layered Cheesecake</title>
+    <link rel="stylesheet" href="recipe-card.css">
+</head>
+
+<body>
+  <div class="the-recipe">
+    <h1>Cheesecake Recipe - Layered Pumpkin Cheesecake</h1>
+    <p class="h1-subtitle">If you like pumpkin pie and cheesecake, you will like this. For one pie (8-10 servings). 9 inch (23cm) pie plate. </p>
+    <p class="h1-subtitle2">Recommended crusts: plain, walnut, or pecan (regardless, add 1/2 tsp pumpkin spice to crust)</p>
+    <h2>Ingredients</h2>
+
+   <div class="ingredient-list">
+    <h3>Pumpkin Layer</h3>    
+    <ul>
+        <li>
+            <input type="checkbox" id="pumpkin">
+            <label for="pumpkin">3/4 cup pumpkin purée or well beaten pumpkin</label>
+        </li>
+        <li> 
+            <input type="checkbox" id="">
+            <label for="">1/4 cup sweetened condensed milk (or 1/4 cup white sugar and 2 tbsp whipping cream)</label>
+        </li>
+        <li>
+            <input type="checkbox" id="p-egg">
+            <label for="p-egg">1 egg</label>
+        </li>
+        <li>
+            <input type="checkbox" id="p-vanilla">
+            <label for="p-vanilla">1/2 tsp vanilla extract</label>
+        </li>
+        <li>
+            <input type="checkbox" id="spice">
+            <label for="spice">~1/2 tsp pumpkin spice.</label>
+            <ul>
+                <li>
+                    <input type="checkbox" id="cinnamon" class="subBox">
+                    <label for="cinnamon">2 parts ground cinnamon</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="nutmeg" class="subBox">
+                    <label for="nutmeg">1 part ground nutmeg</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="cloves" class="subBox">
+                    <label for="cloves">1 part ground cloves</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ginger" class="subBox">
+                    <label for="ginger">1 part ground ginger</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="cardamom" class="subBox">
+                    <label for="cardamom">1 part ground cardamom</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="allspice" class="subBox">
+                    <label for="allspice">1 part ground allspice</label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+   </div>
+
+   <div class="ingredient-list">
+    <h3>Cheesecake Layer</h3>    
+    <ul>
+        <li>
+            <input type="checkbox" id="pumpkin-cheese">
+            <label for="pumpkin-cheese">100g cream cheese</label>
+        </li>
+        <li>
+            <input type="checkbox" id="pumpkin-cream">
+            <label for="pumpkin-cream">50g 14% sour cream</label>
+        </li>
+        <li>
+            <input type="checkbox" id="ch-sugar">
+            <label for="ch-sugar">1/4 cup white sugar</label>
+        </li>
+        <li>
+            <input type="checkbox" id="ch-egg">
+            <label for="ch-egg">1 egg</label>
+        </li>
+        <li>
+            <input type="checkbox" id="ch-vanilla">
+            <label for="ch-vanilla">1/2 tsp vanilla extract</label>
+        </li>
+        <li>
+            <input type="checkbox" id="ch-nutmeg">
+            <label for="ch-nutmeg">1 pinch of ground nutmeg</label>
+        </li>
+    </ul>
+   </div>
+
+    <h2>Instructions</h2>
+    <h3>Pumpkin Layer</h3>
+    <ol>
+        <li>
+            Preheat oven to 325°F (165°C).
+        </li>
+        <li>
+            Make crust according to the <a href="recipe-card.html">original recipe</a>, adding 1/2 tsp pumpkin spice.
+        </li>
+        <li>
+            Combine the pumpkin layer ingredients in a bowl and stir well.
+        </li>
+        <li>
+            Poor the filling into the cooled crust and bake for 20-25 minutes.
+        </li>
+        <li>
+            Cool it down slightly before adding the cheesecake layer.
+        </li>
+    </ol>
+    <h3>Cheesecake Layer</h3>
+    <ol>
+        <li>
+            Beat the sour cream and cream cheese together until smooth.
+        </li>
+        <li>
+            Add the egg and vanilla, mixing in well, then mix in the sugar.
+        </li>
+        <li>
+            Pour the batter gently across the warm pumpkin layer, and bake for another 20-25 minutes, checking for the centre to be just slightly jiggly. The cake will set fully as it cools.
+        </li>
+        <li>
+            Cool the cake completely before setting in the fridge to chill for at least 4 hours or overnight.
+        </li>
+        <li>
+            To serve, top with unsweetened whipped cream on each slice.
+        </li>
+    </ol>
+
+    <br>
+    <div class="recipe-return">
+        <hr>
+        <p>Back to <a href="cheesecake-base.html">cheesecake base</a>.</p>
+        <p>Back to <a href="index.html">recipe list</a>.</p>
+        <p>Check out the <a href="gallery.html">Image Gallery</a>.</p>
+    </div>
+  </div>
+
+   <script>
+        // 1. Get references to the elements
+        const master = document.getElementById('spice');
+        const subBoxes = document.querySelectorAll('.subBox');
+
+        // 2. Listen for changes on the master checkbox
+        master.addEventListener('change', function() {
+            // 3. Loop through all sub-boxes and match the master's state
+            subBoxes.forEach(box => {
+                box.checked = master.checked;
+            });
+        });
+        // 3. Subboxes trigger master state
+        subBoxes.forEach(box => {
+            box.addEventListener('change', function() {
+                // If any sub-checkbox is unchecked, uncheck the master
+                if (!this.checked) {
+                    master.checked = false;
+                } else {
+                    // Otherwise, check if all subboxes are now checked
+                    const allChecked = Array.from(subBoxes).every(cb => cb.checked);
+                    master.checked = allChecked;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
